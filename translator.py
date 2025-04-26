@@ -733,24 +733,19 @@ def main(argv = None):
         return 0
     if not res:
         return -2
-    if 'text' in res:
-        if res['text']:
-            print(res['text'])
-    if 'phonetic' in res:
-        if res['phonetic'] and ('phonetic' in options):
+    if 'text' in res and res['text']:
+        print(res['text'])
+    if 'phonetic' in res and res['phonetic']:
+        if 'phonetic' in options:
             print('[' + res['phonetic'] + ']')
-    if 'definition' in res:
-        if res['definition']:
-            print(res['definition'])
-    if 'explain' in res:
-        if res['explain']:
-            print('\n'.join(res['explain']))
-    elif 'translation' in res:
-        if res['translation']:
-            print(res['translation'])
-    if 'alternative' in res:
-        if res['alternative']:
-            print('\n'.join(res['alternative']))
+    if 'definition' in res and res['definition']:
+        print(res['definition'])
+    if 'explain' in res and res['explain']:
+        print('\n'.join(res['explain']))
+    elif 'translation' in res and res['translation']:
+        print(res['translation'])
+    if 'alternative' in res and res['alternative']:
+        print('\n'.join(res['alternative']))
     return 0
 
 
