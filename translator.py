@@ -716,7 +716,7 @@ def main(argv = None):
     if not tl:
         tl = 'auto'
     if not args:
-        msg = 'usage: translator.py {--engine=xx} {--from=xx} {--to=xx}'
+        msg = 'usage: translator.py {--engine=xx} {--from=xx} {--to=xx} {--phonetic} {--detail}'
         print(msg + ' {-json} text')
         print('engines:', list(ENGINES.keys()))
         return 0
@@ -738,6 +738,10 @@ def main(argv = None):
     if 'phonetic' in res and res['phonetic']:
         if 'phonetic' in options:
             print('[' + res['phonetic'] + ']')
+    if 'detail' in res and res['detail']:
+        if 'detail' in options:
+            for item in res['detail']:
+                print('[' + item + ']')
     if 'definition' in res and res['definition']:
         print(res['definition'])
     if 'explain' in res and res['explain']:
